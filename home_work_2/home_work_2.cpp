@@ -5,11 +5,11 @@ public:
 	figure() {
 		
 	}
-	
-	  void get_print(figure* fig){
-		 
+	 virtual void get_print() {
 	
 	 };
+	
+
 };
 class triange: public figure {
 private: 
@@ -47,9 +47,11 @@ protected:
 	}
 
 	triange(int a, int b, int A, int B, std::string name) {
-		this->a = a = c;
+		this->a = a;
+		c = a;
 		this->b = b;
-		this->A = A = C;
+		this->A = A ;
+		C = A;
 		this->B = B;
 		
 		this->name = name;
@@ -64,8 +66,8 @@ protected:
 	}
 public: 	
 	
-	triange() : triange(10, 20, 30, 50, 60, 70, "Треугольник") { get_print(); }
-	virtual void  get_print() {
+	triange() : triange(10, 20, 30, 50, 60, 70, "Треугольник") {  }
+	 void  get_print() override {
 		std::cout << name << ": " << std::endl;
 		std::cout << "Стороны:  a = " << a << ", b = " << b << ", c = " << c << std::endl;
 		std::cout << "Углы:  A = " << A << ", B = " << B << ", C = " << C << std::endl;
@@ -76,15 +78,15 @@ public:
 
 class rt_triange : public triange {
 public:
-	rt_triange() : triange(10, 20, 30, 60, 30, "Прямоугольный треугольник") { get_print(); }
+	rt_triange() : triange(10, 20, 30, 60, 30, "Прямоугольный треугольник") {  }
 	};
 	class rvst_triange : public triange {
 	public:
-		rvst_triange() : triange(15, "Равносторонний треугольник") { get_print(); }
+		rvst_triange() : triange(15, "Равносторонний треугольник") {  }
 	};
 	class rbd_triange : public triange {
 	public:
-		rbd_triange() : triange(50, 60, 50, 60, "Равнобедренный треугольник") { get_print(); }
+		rbd_triange() : triange(50, 60, 50, 60, "Равнобедренный треугольник") { }
 	};
 
 	class quadrilateral : public figure {
@@ -114,23 +116,28 @@ public:
 
 			this->name = name;
 		}
-		quadrilateral(int a, int b, int A, int C, std::string name) {
-			this->a = a = c;
-			this->b = b = d;
-
-			this->A = A = C;
-			this->B = B = D;
+		quadrilateral(int a, int b, int A, int B, std::string name)  {
+			this->a = a;
+			c = a;
+			this->b = b;
+			d = b;
+			this->A = A ;
+			C = A;
+			this->B = B ;
+			D = B;
 
 			this->name = name;
 		}
+
 	public:
-		virtual void get_print() {
+		
+		void get_print() override{
 			std::cout << name << ": " << std::endl;
 			std::cout << "Стороны:  a = " << a << ", b = " << b << ", c = " << c << ", d = " << d << std::endl;
 			std::cout << "Углы:  A = " << A << ", B = " << B << ", C = " << C << ", D = " << D << std::endl;
 			std::cout << std::endl;
 		}
-		quadrilateral() : quadrilateral(10, 20, 30, 40, 50, 60, 70, 80, "Четырехугольник") { get_print(); }
+		quadrilateral() : quadrilateral(20, 20, 30, 40, 50, 60, 70, 80, "Четырехугольник") {  }
 
 
 	};
@@ -142,37 +149,71 @@ public:
 	private:
 		int a = 0;
 		int b = 0;
-
+		int c = 0;
+		int d = 0;
 		int A = 0;
 		int B = 0;
+		int C = 0;
+		int D = 0;
 
 		std::string name = " ";
 	protected:
-		parallelogram(int a, std::string name) : parallelogram() {
-			this->a = a = b;
-			A = B = 90;
+
+		parallelogram(int a, std::string name) {
+			this->a = a;
+			d = b = c = a;
+			A = B = C = D = 90;
 			this->name = name;
+			
 		}
-		parallelogram(int a, int b, std::string name) : parallelogram() {
+		parallelogram(int a, int b, std::string name) {
 			this->a = a;
 			this->b = b;
-			A = B = 90;
+			c = a;
+			d = b;
+			A = B = C = D = 90;
 			this->name = name;
+			
 		}
-		parallelogram(int a, int A, int B, std::string name) :parallelogram() {
-			this->a = a = b;
+		parallelogram(int a, int A, int B, std::string name) {
+			this->a = a ;
+			b = c = d = a;
 			this->A = A;
+			C = A;
 			this->B = B;
+			D = B;
 			this->name = name;
+			
+		}
+		parallelogram (int a, int b, int A, int B, std::string name) {
+			this->a = a;
+			c = a;
+			this->b = b;
+			d = b;
+			this->A = A;
+			C = A;
+			this->B = B;
+			D = B;
+
+			this->name = name;
+			
 		}
 	public:
-		parallelogram() : quadrilateral(10, 20, 70, 110, "Параллелограм") { get_print(); }
+		parallelogram() : parallelogram(30, 20, 70, 110, "Параллелограм") {
+		
+		}
+		void get_print() override {
+			std::cout << name << ": " << std::endl;
+			std::cout << "Стороны:  a = " << a << ", b = " << b << ", c = " << c << ", d = " << d << std::endl;
+			std::cout << "Углы:  A = " << A << ", B = " << B << ", C = " << C << ", D = " << D << std::endl;
+			std::cout << std::endl;
+		}
 
 
 	};
 	class quadr : public parallelogram {
 	public:
-		quadr() : parallelogram(10, "Квадрат") {  }
+		quadr() : parallelogram(15, "Квадрат") {  }
 	};
 	class romb : public parallelogram {
 	public:
@@ -183,8 +224,8 @@ public:
 		prm_quadre() : parallelogram(10, 20, "Прямоугольник") {  }
 	};
 
-	void print_info() {
-
+	void print_info(figure* fig) {
+		fig->get_print();
 	}
 
 
@@ -194,10 +235,34 @@ public:
 		SetConsoleOutputCP(1251);
 		
 		figure* t = new triange;
+		print_info(t);
+		figure* r_t = new rt_triange;
+		print_info(r_t);
+		figure* rvb_t = new rbd_triange;
+		print_info(rvb_t);
+		figure* rvst_ = new rvst_triange;
+		print_info(rvst_);
+
 		figure* q = new quadrilateral;
-		print_info();// как я понял, в качестве аргумента нужно передать указатель на базовый класс, но мне кажется я что-то делаю не так
-		// и вообще плохо понял как именно требуется от меня вывести информацию о фигуре
+		print_info(q);
+		figure* q_pr = new prm_quadre;
+		print_info(q_pr);
+		figure* q_kv = new quadr;
+		print_info(q_kv);
+		figure* q_r = new romb;
+		print_info(q_r);
+		figure* q_pa = new parallelogram;
+		print_info(q_pa);
+
 		
-		
+		delete t;
+		delete r_t;
+		delete rvb_t;
+		delete rvst_;
+		delete q;
+		delete q_pr;
+		delete q_kv;
+		delete q_r;
+		delete q_pa;
 
 	}
