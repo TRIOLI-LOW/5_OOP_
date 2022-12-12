@@ -303,4 +303,12 @@ int main() {
 	print_info(q_pa);
 
 	delete t;
+	delete r_t;
+	delete rvb_t;
+	delete rvst_;
+	delete q;
+	delete q_pr;
+	delete q_kv;
+	delete q_r;
+	delete q_pa;
 }
