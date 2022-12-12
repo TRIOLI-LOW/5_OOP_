@@ -1,0 +1,6 @@
+﻿  home_work_3.cpp
+C:\Users\Murko\Desktop\netology\Базовое Программирование\5_OOP_polimorfizm\home_work_3\home_work_3.cpp(76,41): warning C4806: ==: небезопасная операция: значение типа "bool", приведенное к типу "int", не может равняться данной константе
+C:\Users\Murko\Desktop\netology\Базовое Программирование\5_OOP_polimorfizm\home_work_3\home_work_3.cpp(93): warning C4715: triange::chek: значение возвращается не при всех путях выполнения
+C:\Users\Murko\Desktop\netology\Базовое Программирование\5_OOP_polimorfizm\home_work_3\home_work_3.cpp(164): warning C4715: quadrilateral::chek: значение возвращается не при всех путях выполнения
+C:\Users\Murko\Desktop\netology\Базовое Программирование\5_OOP_polimorfizm\home_work_3\home_work_3.cpp(244): warning C4715: parallelogram::chek: значение возвращается не при всех путях выполнения
+  home_work_3.vcxproj -> C:\Users\Murko\Desktop\netology\Базовое Программирование\5_OOP_polimorfizm\home_work_3\x64\Debug\home_work_3.exe
